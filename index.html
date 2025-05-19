@@ -1,20 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peddy</title>
-    <link rel="shortcut icon" href="assets/images/logo.webp" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="assets/images/logo.webp"
+      type="image/x-icon"
+    />
 
     <!-- tailwind and daisy UI -->
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-     <!-- fontawesome kit -->
-      <script src="https://kit.fontawesome.com/e60a6371cc.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    
+    <!-- fontawesome kit -->
+    <script
+      src="https://kit.fontawesome.com/e60a6371cc.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar w-11/12 m-auto">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li><a>Home</a></li>
+              <li><a>Shop</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+          <a class="btn btn-ghost text-2xl lg:text-4xl font-extrabold"
+            ><img class="w-8 lg:w-10" src="assets/images/logo.webp" alt="" />
+            Peddy</a
+          >
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a>Home</a></li>
+            <li><a>Shop</a></li>
+            <li><a>Contact</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <a class="border-2 border-gray-500 rounded-full"
+            ><i class="fa-regular fa-user p-2"></i
+          ></a>
+        </div>
+      </nav>
+    </header>
+    <main class="w-11/12 m-auto pt-3 md:pt-5 lg:pt-10">
+        <section class="flex flex-col gap-3">
+            <p class="text-center text-lg">
+                Bringing Families Together <span class="text-red-600"><i class="fa-solid fa-heart"></i></span>
+            </p>
+            <h1 class="w-5/6 md:w-1/2 m-auto text-4xl text-center font-bold">
+                Your Path to Adoption Starts Here
+            </h1>
+            <p class="w-11/12 md:w-2/3 m-auto text-center">
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.
+            </p>
+            <div class="text-center">
+                <a href="#" class="btn text-white bg-[#0E7A81] p-2">View More</a>
+            </div>
+            <div class="w-10/12 lg:w-8/12 m-auto py-8">
+                <img class="w-full" src="assets/images/pet.webp" alt="">
+            </div>
+        </section>
+    </main>
     <script src="scripts/app.js"></script>
-</body>
+    <script src="scripts/utilities.js"></script>
+  </body>
 </html>
