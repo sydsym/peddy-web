@@ -111,6 +111,11 @@
           class="flex justify-between w-11/12 py-5 md:w-8/12 m-auto flex-col md:flex-row gap-3"
           id="category-container"
         ></div>
+        <div id="category-spinner" class="relative hidden">
+          <span
+            class="absolute left-[50%] loading loading-dots loading-xl"
+          ></span>
+        </div>
         <!-- all categories end  -->
         <div class="flex justify-between py-5">
           <p class="font-bold">Best Deal For You</p>
@@ -118,112 +123,20 @@
             Sort by Price
           </button>
         </div>
+        <div id="pet-spinner" class="relative h-[80vh] hidden">
+          <span
+            class="absolute left-[50%] bottom-[50%] loading loading-dots loading-xl"
+          ></span>
+        </div>
         <div class="grid grid-cols-12 gap-3">
           <div
             id="pet-container"
-            class="col-span-9 rounded-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
-          >
-            <div class="card border-2 shadow-sm p-3">
-              <figure>
-                <!-- card image  -->
-                <img
-                  class="w-full rounded-lg"
-                  src="https://i.ibb.co.com/p0w744T/pet-1.jpg"
-                  alt="Shoes"
-                />
-              </figure>
-              <div class="card-body px-0 py-3">
-                <!-- card-body -->
-                <h3 class="font-bold text-xl">Mister Tartosh</h3>
-                <div class="text-gray-500 flex flex-col gap-1">
-                  <p>
-                    <i class="fa-solid fa-puzzle-piece"></i> Breed: Golden
-                    Retriever
-                  </p>
-                  <p><i class="fa-solid fa-calendar-days"></i> Birth: 2024</p>
-                  <p><i class="fa-solid fa-mars-and-venus"></i> Gender: Male</p>
-                  <p><i class="fa-solid fa-dollar-sign"></i> Price: $199</p>
-                </div>
-                <hr class="border-1 border-gray-200 my-2" />
-                <div class="flex justify-between text-[#0E7A81] font-bold">
-                  <button class="btn border-2 rounded-lg px-3 py-2">
-                    <i class="fa-solid fa-thumbs-up"></i></button
-                  ><button class="btn border-2 rounded-lg px-3 py-2">
-                    Adopt</button
-                  ><button class="btn border-2 rounded-lg px-3 py-2">
-                    Details
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="card border-2 shadow-sm p-3">
-              <figure>
-                <!-- card image  -->
-                <img
-                  class="w-full rounded-lg"
-                  src="https://i.ibb.co.com/p0w744T/pet-1.jpg"
-                  alt="Shoes"
-                />
-              </figure>
-              <div class="card-body px-0 py-3">
-                <!-- card-body -->
-                <h3 class="font-bold text-xl">Mister Tartosh</h3>
-                <div class="text-gray-500 flex flex-col gap-1">
-                  <p>
-                    <i class="fa-solid fa-puzzle-piece"></i> Breed: Golden
-                    Retriever
-                  </p>
-                  <p><i class="fa-solid fa-calendar-days"></i> Birth: 2024</p>
-                  <p><i class="fa-solid fa-mars-and-venus"></i> Gender: Male</p>
-                  <p><i class="fa-solid fa-dollar-sign"></i> Price: $199</p>
-                </div>
-                <hr class="border-1 border-gray-200 my-2" />
-                <div class="flex justify-between text-[#0E7A81] font-bold">
-                  <button class="btn border-2 rounded-lg px-3 py-2">
-                    <i class="fa-solid fa-thumbs-up"></i></button
-                  ><button class="btn border-2 rounded-lg px-3 py-2">
-                    Adopt</button
-                  ><button class="btn border-2 rounded-lg px-3 py-2">
-                    Details
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="card border-2 shadow-sm p-3">
-              <figure>
-                <!-- card image  -->
-                <img
-                  class="w-full rounded-lg"
-                  src="https://i.ibb.co.com/p0w744T/pet-1.jpg"
-                  alt="Shoes"
-                />
-              </figure>
-              <div class="card-body px-0 py-3">
-                <!-- card-body -->
-                <h3 class="font-bold text-xl">Mister Tartosh</h3>
-                <div class="text-gray-500 flex flex-col gap-1">
-                  <p>
-                    <i class="fa-solid fa-puzzle-piece"></i> Breed: Golden
-                    Retriever
-                  </p>
-                  <p><i class="fa-solid fa-calendar-days"></i> Birth: 2024</p>
-                  <p><i class="fa-solid fa-mars-and-venus"></i> Gender: Male</p>
-                  <p><i class="fa-solid fa-dollar-sign"></i> Price: $199</p>
-                </div>
-                <hr class="border-1 border-gray-200 my-2" />
-                <div class="flex justify-between text-[#0E7A81] font-bold">
-                  <button class="btn border-2 rounded-lg px-3 py-2">
-                    <i class="fa-solid fa-thumbs-up"></i></button
-                  ><button class="btn border-2 rounded-lg px-3 py-2">
-                    Adopt</button
-                  ><button class="btn border-2 rounded-lg px-3 py-2">
-                    Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="liked-pet" class="col-span-3 border-2 rounded-lg"></div>
+            class="col-span-12 md:col-span-9 rounded-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+          ></div>
+          <div
+            id="liked-pet"
+            class="col-span-12 md:col-span-3 border-2 rounded-lg hidden"
+          ></div>
         </div>
       </section>
     </main>
@@ -231,17 +144,3 @@
     <script type="module" src="scripts/utilities.js"></script>
   </body>
 </html>
-
-<!-- "pets": [
-    {
-      "petId": 1,
-      "breed": "Golden Retriever",
-      "category": "Dog",
-      "date_of_birth": "2023-01-15",
-      "price": 1200,
-      "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
-      "gender": "Male",
-      "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
-      "vaccinated_status": "Fully",
-      "pet_name": "Sunny"
-    } -->
