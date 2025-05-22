@@ -201,7 +201,7 @@ const likedPetsList = (liked, loadedPets) => {
   likedPetsContainer.innerHTML = "";
   likedPets.forEach((likedItem) => {
     const likedPetCard = document.createElement("img");
-    likedPetCard.class = "rounded-lg w-full";
+    likedPetCard.classList.add("rounded-lg", "w-5/12", "m-1", "inline-block");
     likedPetCard.setAttribute("src", likedItem.image);
 
     likedPetsContainer.appendChild(likedPetCard);
