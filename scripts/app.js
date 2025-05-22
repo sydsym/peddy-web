@@ -64,7 +64,9 @@ const loadPetsByCategory = async (categoryId, categoryName) => {
   }
 };
 
+let currentPets = [];
 const showPets = (pets) => {
+  currentPets = pets;
   const petsContainer = document.getElementById("pet-container");
   petsContainer.innerHTML = "";
 
@@ -188,14 +190,17 @@ const showDetails = async (petId) => {
     toggleDetailsSpinner(false);
   }
 };
-const likedPets = [];
+
+let likedPets = [];
 const likedPetsList = (liked, loadedPets) => {
-  console.log(liked, loadedPets);
   const matching = likedPets.some((pet) => pet.petId === liked.petId);
+  const likeBtn = document.getElementById(`petid-${liked.petId}`);
   if (!matching) {
     likedPets.push(liked);
+    likeBtn.classList.add("bg-green-200");
   } else {
-    console.log("duplicate");
+    likedPets = likedPets.filter((pet) => pet.petId !== liked.petId);
+    likeBtn.classList.remove("bg-green-200");
   }
   const likedPetsContainer = document.getElementById("liked-pets");
   likedPetsContainer.innerHTML = "";
@@ -207,6 +212,17 @@ const likedPetsList = (liked, loadedPets) => {
     likedPetsContainer.appendChild(likedPetCard);
   });
 };
+
+const sortByPrice = (currentPets) => {
+  const unsorted = currentPets;
+  const sorted = currentPets.sort((a, b) => a.price - b.price);
+  showPets(sorted);
+};
+const sortBtn = document.getElementById("sort-by-price");
+sortBtn.addEventListener("click", () => {
+  sortByPrice(currentPets);
+});
+
 const getBirthYear = (date) => {
   const splited = date.split("-");
   return splited[0];
@@ -254,31 +270,3 @@ const isActive = (categoryId) => {
 
 loadCategories();
 loadPets();
-
-// {
-//     "petId": 2,
-//     "breed": "Siamese",
-//     "category": "Cat",
-//     "date_of_birth": "2022-09-05",
-//     "price": 800,
-//     "image": "https://i.ibb.co.com/3Wzz41D/pet-2.jpg",
-//     "gender": "Female",
-//     "pet_details": "This affectionate female Siamese cat is known for her vocal nature and love for attention. Born on September 5, 2022, she enjoys interactive play and snuggles. Fully vaccinated and priced at $800, she's the perfect fit for cat lovers who appreciate an intelligent, engaging, and sociable feline companion.",
-//     "vaccinated_status": "Fully",
-//     "pet_name": "Mia"
-//   },
-
-/* <dialog id="detailsModal" class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box">
-              <h3 class="text-lg font-bold">Hello!</h3>
-              <p class="py-4">
-                Press ESC key or click the button below to close
-              </p>
-              <div class="modal-action">
-                <form method="dialog">
-                  <!-- if there is a button in form, it will close the modal -->
-                  <button class="btn">Close</button>
-                </form>
-              </div>
-            </div>
-          </dialog> */
